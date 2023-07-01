@@ -13,42 +13,41 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
 
     final String TITLE = "Main Activity";
+    private boolean followed;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Log.v(TITLE, "On Create!");
+        Intent i = getIntent();
+
+        String name = i.getStringExtra("name");
+        String description = i.getStringExtra("des");
+        followed = i.getBooleanExtra("followed",false);
 
         Button followButton = (Button) findViewById(R.id.Follow);
         Button messageButton = (Button) findViewById(R.id.Message);
 
-        User a = new User("MAD", "Tom's Description", 1, false);
 
         TextView Title = (TextView) findViewById((R.id.Title));
-        String greeting = "Hello " + a.name + "!";
-        Title.setText(greeting);
+        Title.setText(name);
 
         TextView Description = (TextView) findViewById((R.id.Description));
-        Description.setText(a.description);
+        Description.setText(description);
 
-        Intent intent = getIntent();
-        int randomInteger = intent.getIntExtra("randomInteger", 0);
-        greeting = a.name + " " + randomInteger;
-        Title.setText(greeting);
 
         followButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (a.followed == false){
+                followed = !followed;
+                if (followButton.getText() == "Follow"){
                     followButton.setText("Unfollow");
-                    a.followed = true;
                     Toast.makeText(getApplicationContext(), "Followed", Toast.LENGTH_SHORT).show();
                 }
 
                 else{
                     followButton.setText("Follow");
-                    a.followed = false;
                     Toast.makeText(getApplicationContext(), "Unfollowed", Toast.LENGTH_SHORT).show();
                 }
             }

@@ -22,14 +22,14 @@ public class User {
     }
 
     public void setUserName(String userName) {
-        this.name = name;
+        this.name = userName;
     }
 
-    public String getPassword() {
+    public String getUserDescription() {
         return description;
     }
 
-    public void setPassword(String password) {
+    public void setUserDescription(String description) {
         this.description = description;
     }
 
@@ -41,10 +41,10 @@ public class User {
     public void setId(Integer id) {
         this.id = id;
     }
-    public boolean isFollowed() {
+    public boolean getIsFollowed() {
         return followed;
     }
-    public void setFollowed(boolean followed) {
+    public void setIsFollowed(boolean followed) {
         this.followed = followed;
     }
 }

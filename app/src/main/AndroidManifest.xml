@@ -13,6 +13,16 @@
         android:theme="@style/Theme.Mad_Wk2Practical"
         tools:targetApi="31">
         <activity
+            android:name=".Adapter"
+            android:exported="false"
+            android:label="@string/title_activity_adapter"
+            android:theme="@style/Theme.Mad_Wk2Practical" />
+        <activity
+            android:name=".ListActivity2"
+            android:exported="false"
+            android:label="@string/title_activity_list2"
+            android:theme="@style/Theme.Mad_Wk2Practical" />
+        <activity
             android:name=".MessageGroup"
             android:exported="false" />
         <activity
