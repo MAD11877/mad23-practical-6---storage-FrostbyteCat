@@ -1,6 +1,8 @@
 package com.example.mad_wk2practical;
 
-public class User {
+import java.io.Serializable;
+
+public class User implements Serializable {
 
     public String name;
     public String description;

@@ -28,14 +28,17 @@ public class ListActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list);
+        dbHandler db = new dbHandler(this, null, null, 1);
 
         //Creating the 20 users
         ArrayList<User> users = new ArrayList<>();
         int id = 1;
         for (int i = 0; i < 20; i++) {
-            users.add(new User(randomName(), randomDescription(), id, randomFollowed()));
+            db.addUser(new User(randomName(), randomDescription(), id, randomFollowed()));
             id++;
         }
+
+        users = db.getUsers();
 
         RecyclerView rv = findViewById(R.id.recyclerview);
         Adapter adapter = new Adapter(this, users);

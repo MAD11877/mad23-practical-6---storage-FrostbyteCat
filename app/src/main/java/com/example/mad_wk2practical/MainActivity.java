@@ -19,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        dbHandler db = new dbHandler(this, null, null, 1);
         Log.v(TITLE, "On Create!");
         Intent i = getIntent();
 
@@ -35,12 +36,15 @@ public class MainActivity extends AppCompatActivity {
 
         TextView Description = (TextView) findViewById((R.id.Description));
         Description.setText(description);
+        User user =(User) i.getSerializableExtra("UserID");
 
 
         followButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                followed = !followed;
+                user.followed = !user.followed;
+                db.updateUser(user);
+
                 if (followButton.getText() == "Follow"){
                     followButton.setText("Unfollow");
                     Toast.makeText(getApplicationContext(), "Followed", Toast.LENGTH_SHORT).show();

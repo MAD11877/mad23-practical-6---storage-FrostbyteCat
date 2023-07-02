@@ -18,11 +18,6 @@
             android:label="@string/title_activity_adapter"
             android:theme="@style/Theme.Mad_Wk2Practical" />
         <activity
-            android:name=".ListActivity2"
-            android:exported="false"
-            android:label="@string/title_activity_list2"
-            android:theme="@style/Theme.Mad_Wk2Practical" />
-        <activity
             android:name=".MessageGroup"
             android:exported="false" />
         <activity
@@ -37,11 +32,6 @@
         <activity
             android:name=".MainActivity"
             android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
     </application>
 

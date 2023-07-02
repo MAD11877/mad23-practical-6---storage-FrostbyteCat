@@ -85,6 +85,17 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder>{
         return users.size();
     }
 
+    public int getItemViewType(int position) {
+        String name = users.get(position).getUserName();
+        int endDigit = Integer.parseInt(name.substring(name.length() - 1));
+
+        if (endDigit == 7) {
+            return 1;
+        } else {
+            return 0;
+        }
+    }
+
     public static class ViewHolder extends RecyclerView.ViewHolder {
         public ImageView userProfilePic;
 
